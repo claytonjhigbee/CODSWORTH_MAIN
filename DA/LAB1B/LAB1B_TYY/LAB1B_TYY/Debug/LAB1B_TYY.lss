@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\LAB1B\LAB_1B\LAB_1B\main.asm Fri Feb 22 10:24:43 2019
+AVRASM ver. 2.2.7  C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\LAB1B\LAB1B_TYY\LAB1B_TYY\main.asm Sat Feb 23 22:42:37 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc'
@@ -985,9 +985,9 @@ AVRASM ver. 2.2.7  C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\LAB1B\LAB_1B\LAB_1B\main.
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; LAB_1B.asm
+                                 ; LAB1B_TYY.asm
                                  ;
-                                 ; Created: 2/22/2019 9:35:24 AM
+                                 ; Created: 2/23/2019 10:41:43 PM
                                  ; Author : clayt
                                  ;
                                  
