@@ -4,7 +4,7 @@
  * Created: 3/2/2019 8:25:24 AM
  * Author : clayt
  */ 
-
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -16,11 +16,11 @@ int main(void)
 	
     while (1) 
     {
-		if(PINC == 0x7D)
+		PORTB = 0b00111100; // Set LED Port B to Low (REVERSE LOGIC)
+		if(PINC == 0x7D) ; // If switch push is detected, then set LEDs
 		{
-			PORTB = 0b00111100;
-			_delay_ms(1250);
-			PORTB = 0;
+			PORTB = 0b00000000; // Set LED Port B to High (REVERSE LOGIC)
+			_delay_ms(1250); // Delay for 1.25 seconds
 		}
 		
     }
