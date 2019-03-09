@@ -1,0 +1,121 @@
+;
+; InterruptEnabledPushButton.asm
+;
+; Created: 3/6/2019 9:22:47 PM
+; Author : clayt
+;
+
+; Task 1: Connect a switch to PORTD.2 (active high - turn on the pull up transistor) to
+; poll for an event to turn on the led at PORTB.2 for 1.250 sec after the event.
+.ORG 0; LOCATION FOR RESET
+JMP START
+
+.ORG 0x02 ; Location for external interrupt stack location
+JMP EXO_ISR
+
+START:
+	; Intialize Stackpointer
+	LDI R20, HIGH(RAMEND)
+	OUT SPH, R20 ; LOAD HIGH BYTE OF STACKPOINTER TO INITIALIZE
+	LDI R20, LOW(RAMEND) 
+	OUT SPL, R20
+
+	;Initialize I/O Pins
+	LDI R22, 0 ; Load immediate 0 into R22
+	LDI R16, 0xFF ; Load immediate 255 into R16
+	OUT DDRB, R16 ; Set DDRB as output
+	OUT DDRD, R22 ; Set DDRD as input
+	SBI PORTD, 2 ; Set PortD.2 Pull up resistors for input for interrupt
+	OUT PORTB, R16 ; Set Port B and related Pins HIGH to set LEDs to LOW (Reverse Logic)
+
+	;Initialize Interrupt
+	LDI R20, 0x2 ; CONFIGURE INTERRUPT TO OCCUR INT0 FOR FALLING EDGE TRIGGER
+	STS EICRA, R20 ; LOAD CONFIGURE INTO REGISTER
+	LDI R20, 1<< INT0 ; ENABLE EXTERNAL INTERRUPT INT0(PD2)
+	OUT EIMSK, R20 ; LOAD ENABLE INTO REGISTER
+	SEI ; GLOBAL INTERRUPT ENABLE COMMAND
+
+HERE: JMP HERE ; LOOP HERE UNTIL THE INTERRUPT OCCURS
+
+; INTERRUPT SUBROUTINE ---------------------------------------
+EXO_ISR:
+	LDI R16, 0xFF  
+	LDI R19, 0b11111011 ; Load immediate into R19 to Set PortB2 LED ON
+	OUT PORTB, R19 ; Set LED Port B to Low (REVERSE LOGIC)
+	RCALL DELAY_1250ms
+	OUT PORTB, R16 ; Set LED Port B to High (REVERSE LOGIC) to turn LED off
+	RETI ; RETURN FROM INTERRUPT
+
+DELAY_1250ms:	
+	RCALL DELAY_1000ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+RET
+
+DELAY_1000ms:
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+	RCALL DELAY_100ms
+RET
+
+DELAY_100ms:
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+	RCALL DELAY_10ms
+RET
+
+
+DELAY_10ms:
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+	RCALL DELAY_1ms
+RET
+
+DELAY_1ms:
+	PUSH R16
+	PUSH R18
+	LDI R16, 172
+	LDI R18, 6
+	DELAY_1A:
+		DELAY_1B:
+			NOP
+			NOP
+			NOP
+			NOP
+			NOP
+			NOP
+			NOP
+			NOP
+			DEC R16
+			BRNE DELAY_1B
+		DEC R18
+		BRNE DELAY_1B
+	POP R16
+	POP R18
+	RET
