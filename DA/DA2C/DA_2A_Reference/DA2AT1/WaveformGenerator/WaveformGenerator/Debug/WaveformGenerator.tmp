@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m328PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\Debug\WaveformGenerator.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>WaveformGenerator.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>WaveformGenerator.map</FILE>
+  <FILE>WaveformGenerator.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>14</LINE></START>
+  <DELAYHIGH0><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>31</LINE></DELAYHIGH0>
+  <L1><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>22</LINE></L1>
+  <DELAYLOW0><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>44</LINE></DELAYLOW0>
+  <DELAYHIGH1><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>39</LINE></DELAYHIGH1>
+  <DELAYLOW1><FILE>C:\LODSWORTH_MAIN\CODSWORTH_MAIN\DA\DA2A\DA2AT1\WaveformGenerator\WaveformGenerator\main.asm</FILE><LINE>53</LINE></DELAYLOW1>
+ </LABELS>
+</ASSEMBLER_INFO>
