@@ -29,7 +29,7 @@ int main(void)
 	{
 		read_adc();
 		snprintf(outs,sizeof(outs),"%3d\r\n", adc_temp);  // print it
-		USART_tx_string("Hello World! ");
+		USART_tx_string(outs);
 		_delay_ms(125);        // wait a bit
 	}
 }
