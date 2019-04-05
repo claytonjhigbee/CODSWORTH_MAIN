@@ -17,20 +17,37 @@ void read_adc(void);        // Function Declarations
 void adc_init(void);
 void USART_init( unsigned int ubrr );
 void USART_tx_string( char *data );
+void ESP_send( char *data );
 volatile unsigned int adc_temp;
+volatile unsigned int tempF;
+volatile unsigned int tempC;
+volatile unsigned int tempCold;
 char outs[20];
+char sender[51];
 int main(void)
 {
 	adc_init();             // Initialize the ADC
 	USART_init(BAUD_PRESCALLER);  // Initialize the USART
 	USART_tx_string("Connected!\r\n");    // we're alive!
 	_delay_ms(125);         // wait a bit
+	tempC = 0;
+	tempF = 0;
+	tempCold = 0;
 	while(1)
 	{
 		read_adc();
-		snprintf(outs,sizeof(outs),"%3d\r\n", adc_temp);  // print it
+		adc_temp = (adc_temp*500)/1023;
+		tempC = adc_temp;
+		tempF = (tempC*1.8)+32;
+		tempF = tempF-65; 
+		//tempC = tempC - 30;
+		if(1 >= tempC){
+			tempC = tempC*(-1);
+		}
+		snprintf(outs,sizeof(outs),"%3d\r\n", tempC);  // print it
 		USART_tx_string(outs);
-		_delay_ms(125);        // wait a bit
+		ESP_send(outs);
+		_delay_ms(1000);        // wait a bit
 	}
 }
 /* INIT ADC */
@@ -55,7 +72,7 @@ void adc_init(void)
 /* READ ADC PINS */
 void read_adc(void)
 {
-	unsigned char i = 4;
+	unsigned char i = 8;
 	adc_temp = 0;
 	while (i--)
 	{
@@ -64,7 +81,7 @@ void read_adc(void)
 		adc_temp+= ADC;
 		_delay_ms(50);
 	}
-	adc_temp = adc_temp / 4;  // Average a few samples
+	adc_temp = adc_temp / 8;  // Average a few samples
 }
 /* INIT USART (RS-232)  */
 void USART_init( unsigned int ubrr )
@@ -83,4 +100,20 @@ void USART_tx_string( char *data )
 		UDR0 = *data;
 		data++;
 	}
+}
+
+void ESP_send( char *data )
+{
+	char sender[] = "AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80 \r\n";
+	USART_tx_string(sender);
+	_delay_ms(2000);
+	char sender2[] = "AT+CIPSEND=51 \r\n";
+	USART_tx_string(sender2);
+	_delay_ms(2000);
+	char sender3[] = "GET /update?key=DTJWRPL9C5AEE0YQ&field1=30 \r\n";
+	USART_tx_string(sender3);
+	_delay_ms(100);
+	char sender4[] = "\r\n";
+	USART_tx_string(sender4);
+	char sender5[] = "AT+CIPCLOSE";	USART_tx_string(sender5);	_delay_ms(2000);
 }

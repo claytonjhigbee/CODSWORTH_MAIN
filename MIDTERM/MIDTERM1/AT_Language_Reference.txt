@@ -1,0 +1,29 @@
+ESP 01 Module - ESP8266
+Startin Baud Rate was 115200
+Do not set DTR or RTS in ESPLORER, why???
+
+/* Initialization Commands */
+AT - Check Status Command, should get OK if working
+AT+CWMODE=1 - Set CW mode to Station
+AT+CWLAP - Display all available wireless access points
+AT+CWJAP="SSID","PASSWORD" - Login into a WAP using SSID and Password
+
+The previously used WAP will be retained in memory and will automatically try to reconnect when the device boots again. 
+
+
+/* Commands to Speak with Thingspeak Website */
+AT+CIPSTART="TCP","api.thingspeak.com",80 - Connect to Thingspeak website
+AT+CIPSEND=51 - Character length to be sent
+GET /update?key=MY_KEY&field1=_____<InsertNumberhere - Write command for Field 1, includes write key
+\r\n - Break line
+AT+CIPCLOSE - Close if necessary
+/* Rinse and Repeat! */
+
+Reference: https://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/
+
+Change baudrate?
+AT+UART_CUR=9600,8,1,0,0
+AT+UART_CUR=115200,8,1,0,0
+
+AT+CIOBAUD=9600 --> This worked for both 
+DO NOT SEND: AT+IPR=9600
