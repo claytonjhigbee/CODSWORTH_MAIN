@@ -1,5 +1,5 @@
 ESP 01 Module - ESP8266
-Startin Baud Rate was 115200
+Starting Baud Rate was 115200
 Do not set DTR or RTS in ESPLORER, why???
 
 /* Initialization Commands */
@@ -20,6 +20,7 @@ AT+CIPCLOSE - Close if necessary
 /* Rinse and Repeat! */
 
 Reference: https://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/
+https://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf
 
 Change baudrate?
 AT+UART_CUR=9600,8,1,0,0
