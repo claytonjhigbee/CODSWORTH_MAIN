@@ -1,0 +1,446 @@
+
+DA4A.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  0000027a  0000030e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000027a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000016  0080010e  0080010e  0000031c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000031c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000034c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000048  00000000  00000000  0000038c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000bec  00000000  00000000  000003d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a19  00000000  00000000  00000fc0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000426  00000000  00000000  000019d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000009c  00000000  00000000  00001e00  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004f0  00000000  00000000  00001e9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000001ff  00000000  00000000  0000238c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000038  00000000  00000000  0000258b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__ctors_end>
+   4:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+   8:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+   c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  10:	0c 94 1e 01 	jmp	0x23c	; 0x23c <__vector_4>
+  14:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  18:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  1c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  20:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  24:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  28:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  2c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  30:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  34:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  38:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  3c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  40:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  44:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  48:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  4c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  50:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  54:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  58:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  5c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  60:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  64:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  68:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  6c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  70:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  74:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  78:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  7c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  80:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  84:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  88:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  8c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  90:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  94:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  98:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  9c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  a0:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  a4:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  a8:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  ac:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  b0:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+
+000000b4 <__ctors_end>:
+  b4:	11 24       	eor	r1, r1
+  b6:	1f be       	out	0x3f, r1	; 63
+  b8:	cf ef       	ldi	r28, 0xFF	; 255
+  ba:	d8 e0       	ldi	r29, 0x08	; 8
+  bc:	de bf       	out	0x3e, r29	; 62
+  be:	cd bf       	out	0x3d, r28	; 61
+
+000000c0 <__do_copy_data>:
+  c0:	11 e0       	ldi	r17, 0x01	; 1
+  c2:	a0 e0       	ldi	r26, 0x00	; 0
+  c4:	b1 e0       	ldi	r27, 0x01	; 1
+  c6:	ea e7       	ldi	r30, 0x7A	; 122
+  c8:	f2 e0       	ldi	r31, 0x02	; 2
+  ca:	02 c0       	rjmp	.+4      	; 0xd0 <__do_copy_data+0x10>
+  cc:	05 90       	lpm	r0, Z+
+  ce:	0d 92       	st	X+, r0
+  d0:	ae 30       	cpi	r26, 0x0E	; 14
+  d2:	b1 07       	cpc	r27, r17
+  d4:	d9 f7       	brne	.-10     	; 0xcc <__do_copy_data+0xc>
+
+000000d6 <__do_clear_bss>:
+  d6:	21 e0       	ldi	r18, 0x01	; 1
+  d8:	ae e0       	ldi	r26, 0x0E	; 14
+  da:	b1 e0       	ldi	r27, 0x01	; 1
+  dc:	01 c0       	rjmp	.+2      	; 0xe0 <.do_clear_bss_start>
+
+000000de <.do_clear_bss_loop>:
+  de:	1d 92       	st	X+, r1
+
+000000e0 <.do_clear_bss_start>:
+  e0:	a4 32       	cpi	r26, 0x24	; 36
+  e2:	b2 07       	cpc	r27, r18
+  e4:	e1 f7       	brne	.-8      	; 0xde <.do_clear_bss_loop>
+  e6:	0e 94 d5 00 	call	0x1aa	; 0x1aa <main>
+  ea:	0c 94 3b 01 	jmp	0x276	; 0x276 <_exit>
+
+000000ee <__bad_interrupt>:
+  ee:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000f2 <adc_init>:
+
+/* INIT ADC */
+void adc_init(void)
+{
+	/** Setup and enable ADC **/
+	ADMUX = (0<<REFS1)|    // Reference Selection Bits
+  f2:	80 e4       	ldi	r24, 0x40	; 64
+  f4:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7e007c>
+	(1<<REFS0)|    // AVcc - external cap at AREF
+	(0<<ADLAR)|    // ADC Left Adjust Result
+	(0<<MUX2)|     // Analog Channel Selection Bits
+	(0<<MUX1)|     // ADC4 (PC4 PIN27)
+	(0<<MUX0);
+	ADCSRA = (1<<ADEN)|    // ADC ENable
+  f8:	85 e8       	ldi	r24, 0x85	; 133
+  fa:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7e007a>
+  fe:	08 95       	ret
+
+00000100 <read_adc>:
+}
+/* READ ADC PINS */
+void read_adc(void)
+{
+	unsigned char i = 4;
+	adc_temp = 0;
+ 100:	10 92 23 01 	sts	0x0123, r1	; 0x800123 <adc_temp+0x1>
+ 104:	10 92 22 01 	sts	0x0122, r1	; 0x800122 <adc_temp>
+ 108:	24 e0       	ldi	r18, 0x04	; 4
+	while (i--)
+	{
+		ADCSRA |= (1<<ADSC);
+ 10a:	ea e7       	ldi	r30, 0x7A	; 122
+ 10c:	f0 e0       	ldi	r31, 0x00	; 0
+		while(ADCSRA & (1<<ADSC));
+		adc_temp+= ADC;
+ 10e:	a8 e7       	ldi	r26, 0x78	; 120
+ 110:	b0 e0       	ldi	r27, 0x00	; 0
+{
+	unsigned char i = 4;
+	adc_temp = 0;
+	while (i--)
+	{
+		ADCSRA |= (1<<ADSC);
+ 112:	80 81       	ld	r24, Z
+ 114:	80 64       	ori	r24, 0x40	; 64
+ 116:	80 83       	st	Z, r24
+		while(ADCSRA & (1<<ADSC));
+ 118:	80 81       	ld	r24, Z
+ 11a:	86 fd       	sbrc	r24, 6
+ 11c:	fd cf       	rjmp	.-6      	; 0x118 <read_adc+0x18>
+		adc_temp+= ADC;
+ 11e:	4d 91       	ld	r20, X+
+ 120:	5c 91       	ld	r21, X
+ 122:	11 97       	sbiw	r26, 0x01	; 1
+ 124:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <adc_temp>
+ 128:	90 91 23 01 	lds	r25, 0x0123	; 0x800123 <adc_temp+0x1>
+ 12c:	84 0f       	add	r24, r20
+ 12e:	95 1f       	adc	r25, r21
+ 130:	90 93 23 01 	sts	0x0123, r25	; 0x800123 <adc_temp+0x1>
+ 134:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <adc_temp>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 138:	3f ef       	ldi	r19, 0xFF	; 255
+ 13a:	80 e7       	ldi	r24, 0x70	; 112
+ 13c:	92 e0       	ldi	r25, 0x02	; 2
+ 13e:	31 50       	subi	r19, 0x01	; 1
+ 140:	80 40       	sbci	r24, 0x00	; 0
+ 142:	90 40       	sbci	r25, 0x00	; 0
+ 144:	e1 f7       	brne	.-8      	; 0x13e <read_adc+0x3e>
+ 146:	00 c0       	rjmp	.+0      	; 0x148 <read_adc+0x48>
+ 148:	00 00       	nop
+ 14a:	21 50       	subi	r18, 0x01	; 1
+/* READ ADC PINS */
+void read_adc(void)
+{
+	unsigned char i = 4;
+	adc_temp = 0;
+	while (i--)
+ 14c:	11 f7       	brne	.-60     	; 0x112 <read_adc+0x12>
+		ADCSRA |= (1<<ADSC);
+		while(ADCSRA & (1<<ADSC));
+		adc_temp+= ADC;
+		_delay_ms(50);
+	}
+	adc_temp = adc_temp / 4;  // Average a few samples
+ 14e:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <adc_temp>
+ 152:	90 91 23 01 	lds	r25, 0x0123	; 0x800123 <adc_temp+0x1>
+ 156:	96 95       	lsr	r25
+ 158:	87 95       	ror	r24
+ 15a:	96 95       	lsr	r25
+ 15c:	87 95       	ror	r24
+ 15e:	90 93 23 01 	sts	0x0123, r25	; 0x800123 <adc_temp+0x1>
+ 162:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <adc_temp>
+ 166:	08 95       	ret
+
+00000168 <USART_init>:
+}
+/* INIT USART (RS-232)  */
+void USART_init( unsigned int ubrr )
+{
+	UBRR0H = (unsigned char)(ubrr>>8);
+ 168:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+	UBRR0L = (unsigned char)ubrr;
+ 16c:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+	UCSR0B = (1 << TXEN0);     // Enable RX, TX & RX interrupt
+ 170:	88 e0       	ldi	r24, 0x08	; 8
+ 172:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+	UCSR0C = (3 << UCSZ00);    //asynchronous 8 N 1
+ 176:	86 e0       	ldi	r24, 0x06	; 6
+ 178:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+ 17c:	08 95       	ret
+
+0000017e <USART_tx_string>:
+}
+/* SEND A STRING TO THE RS-232 */
+void USART_tx_string( char *data )
+{
+ 17e:	cf 93       	push	r28
+ 180:	df 93       	push	r29
+	while ((*data != '\0'))
+ 182:	fc 01       	movw	r30, r24
+ 184:	20 81       	ld	r18, Z
+ 186:	22 23       	and	r18, r18
+ 188:	69 f0       	breq	.+26     	; 0x1a4 <USART_tx_string+0x26>
+ 18a:	dc 01       	movw	r26, r24
+ 18c:	11 96       	adiw	r26, 0x01	; 1
+	{
+		while (!(UCSR0A & (1 <<UDRE0)));
+ 18e:	e0 ec       	ldi	r30, 0xC0	; 192
+ 190:	f0 e0       	ldi	r31, 0x00	; 0
+		UDR0 = *data;
+ 192:	c6 ec       	ldi	r28, 0xC6	; 198
+ 194:	d0 e0       	ldi	r29, 0x00	; 0
+/* SEND A STRING TO THE RS-232 */
+void USART_tx_string( char *data )
+{
+	while ((*data != '\0'))
+	{
+		while (!(UCSR0A & (1 <<UDRE0)));
+ 196:	90 81       	ld	r25, Z
+ 198:	95 ff       	sbrs	r25, 5
+ 19a:	fd cf       	rjmp	.-6      	; 0x196 <USART_tx_string+0x18>
+		UDR0 = *data;
+ 19c:	28 83       	st	Y, r18
+	UCSR0C = (3 << UCSZ00);    //asynchronous 8 N 1
+}
+/* SEND A STRING TO THE RS-232 */
+void USART_tx_string( char *data )
+{
+	while ((*data != '\0'))
+ 19e:	2d 91       	ld	r18, X+
+ 1a0:	21 11       	cpse	r18, r1
+ 1a2:	f9 cf       	rjmp	.-14     	; 0x196 <USART_tx_string+0x18>
+	{
+		while (!(UCSR0A & (1 <<UDRE0)));
+		UDR0 = *data;
+		data++;
+	}
+}
+ 1a4:	df 91       	pop	r29
+ 1a6:	cf 91       	pop	r28
+ 1a8:	08 95       	ret
+
+000001aa <main>:
+volatile unsigned int adc_temp;
+char outs[20];
+
+int main(void)
+{
+	adc_init();             // Initialize the ADC
+ 1aa:	0e 94 79 00 	call	0xf2	; 0xf2 <adc_init>
+	USART_init(BAUD_PRESCALLER);  // Initialize the USART
+ 1ae:	87 e6       	ldi	r24, 0x67	; 103
+ 1b0:	90 e0       	ldi	r25, 0x00	; 0
+ 1b2:	0e 94 b4 00 	call	0x168	; 0x168 <USART_init>
+	USART_tx_string("Connected!\r\n");    // we're alive!
+ 1b6:	80 e0       	ldi	r24, 0x00	; 0
+ 1b8:	91 e0       	ldi	r25, 0x01	; 1
+ 1ba:	0e 94 bf 00 	call	0x17e	; 0x17e <USART_tx_string>
+ 1be:	2f e7       	ldi	r18, 0x7F	; 127
+ 1c0:	8a e1       	ldi	r24, 0x1A	; 26
+ 1c2:	96 e0       	ldi	r25, 0x06	; 6
+ 1c4:	21 50       	subi	r18, 0x01	; 1
+ 1c6:	80 40       	sbci	r24, 0x00	; 0
+ 1c8:	90 40       	sbci	r25, 0x00	; 0
+ 1ca:	e1 f7       	brne	.-8      	; 0x1c4 <main+0x1a>
+ 1cc:	00 c0       	rjmp	.+0      	; 0x1ce <main+0x24>
+ 1ce:	00 00       	nop
+	_delay_ms(125);         // wait a bit
+	
+	
+	
+	
+	DDRD = 0xFF; // Set Port D as a direction 
+ 1d0:	8f ef       	ldi	r24, 0xFF	; 255
+ 1d2:	8a b9       	out	0x0a, r24	; 10
+	// In the next line of code, we:
+	// 1. Set the compare output mode to clear OC2A and OC2B on compare match.
+	//    To achieve this, we set bits COM2A1 and COM2B1 to high.
+	// 2. Set the waveform generation mode to fast PWM (mode 3 in datasheet).
+	//    To achieve this, we set bits WGM21 and WGM20 to high.
+	TCCR2A = _BV(COM2A1) | _BV(COM2B1) | _BV(WGM21) | _BV(WGM20);
+ 1d4:	93 ea       	ldi	r25, 0xA3	; 163
+ 1d6:	90 93 b0 00 	sts	0x00B0, r25	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7e00b0>
+	//    OCR2A value instead of the default 255. To achieve this, we set bit
+	//    WGM22 to high.
+	// 2. Set the prescaler divisor to 1, so that our counter will be fed with
+	//    the clock's full frequency (16MHz). To achieve this, we set CS20 to
+	//    high (and keep CS21 and CS22 to low by not setting them).
+	TCCR2B = _BV(WGM22) | _BV(CS20) | _BV(CS21) | _BV(CS22);
+ 1da:	9f e0       	ldi	r25, 0x0F	; 15
+ 1dc:	90 93 b1 00 	sts	0x00B1, r25	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7e00b1>
+	// OCR2A holds the top value of our counter, so it acts as a divisor to the
+	// clock. When our counter reaches this, it resets.
+	OCR2A = 255;
+ 1e0:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7e00b3>
+	// This is the duty cycle. Think of it as the last value of the counter our
+	// output will remain high for. Can't be greater than OCR2A of course.
+	OCR2B = 0;
+ 1e4:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7e00b4>
+
+
+	PCMSK1 |= (1<<3);
+ 1e8:	ec e6       	ldi	r30, 0x6C	; 108
+ 1ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ec:	80 81       	ld	r24, Z
+ 1ee:	88 60       	ori	r24, 0x08	; 8
+ 1f0:	80 83       	st	Z, r24
+	PCICR |= (1<<PCIE1);
+ 1f2:	e8 e6       	ldi	r30, 0x68	; 104
+ 1f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1f6:	80 81       	ld	r24, Z
+ 1f8:	82 60       	ori	r24, 0x02	; 2
+ 1fa:	80 83       	st	Z, r24
+	sei();
+ 1fc:	78 94       	sei
+	while (1)
+	{	
+		read_adc();
+		_delay_ms(250); // WHy delay?
+		adc_temp = adc_temp/4;
+		OCR2B = adc_temp; // Replace with adc value
+ 1fe:	c4 eb       	ldi	r28, 0xB4	; 180
+ 200:	d0 e0       	ldi	r29, 0x00	; 0
+	PCMSK1 |= (1<<3);
+	PCICR |= (1<<PCIE1);
+	sei();
+	while (1)
+	{	
+		read_adc();
+ 202:	0e 94 80 00 	call	0x100	; 0x100 <read_adc>
+ 206:	2f ef       	ldi	r18, 0xFF	; 255
+ 208:	84 e3       	ldi	r24, 0x34	; 52
+ 20a:	9c e0       	ldi	r25, 0x0C	; 12
+ 20c:	21 50       	subi	r18, 0x01	; 1
+ 20e:	80 40       	sbci	r24, 0x00	; 0
+ 210:	90 40       	sbci	r25, 0x00	; 0
+ 212:	e1 f7       	brne	.-8      	; 0x20c <main+0x62>
+ 214:	00 c0       	rjmp	.+0      	; 0x216 <main+0x6c>
+ 216:	00 00       	nop
+		_delay_ms(250); // WHy delay?
+		adc_temp = adc_temp/4;
+ 218:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <adc_temp>
+ 21c:	90 91 23 01 	lds	r25, 0x0123	; 0x800123 <adc_temp+0x1>
+ 220:	96 95       	lsr	r25
+ 222:	87 95       	ror	r24
+ 224:	96 95       	lsr	r25
+ 226:	87 95       	ror	r24
+ 228:	90 93 23 01 	sts	0x0123, r25	; 0x800123 <adc_temp+0x1>
+ 22c:	80 93 22 01 	sts	0x0122, r24	; 0x800122 <adc_temp>
+		OCR2B = adc_temp; // Replace with adc value
+ 230:	80 91 22 01 	lds	r24, 0x0122	; 0x800122 <adc_temp>
+ 234:	90 91 23 01 	lds	r25, 0x0123	; 0x800123 <adc_temp+0x1>
+ 238:	88 83       	st	Y, r24
+ 23a:	e3 cf       	rjmp	.-58     	; 0x202 <main+0x58>
+
+0000023c <__vector_4>:
+		UDR0 = *data;
+		data++;
+	}
+}
+
+ISR(PCINT1_vect){
+ 23c:	1f 92       	push	r1
+ 23e:	0f 92       	push	r0
+ 240:	0f b6       	in	r0, 0x3f	; 63
+ 242:	0f 92       	push	r0
+ 244:	11 24       	eor	r1, r1
+ 246:	2f 93       	push	r18
+ 248:	8f 93       	push	r24
+ 24a:	9f 93       	push	r25
+	DDRD ^= (1<<PORTD6);
+ 24c:	9a b1       	in	r25, 0x0a	; 10
+ 24e:	80 e4       	ldi	r24, 0x40	; 64
+ 250:	89 27       	eor	r24, r25
+ 252:	8a b9       	out	0x0a, r24	; 10
+ 254:	2f ef       	ldi	r18, 0xFF	; 255
+ 256:	83 e2       	ldi	r24, 0x23	; 35
+ 258:	94 ef       	ldi	r25, 0xF4	; 244
+ 25a:	21 50       	subi	r18, 0x01	; 1
+ 25c:	80 40       	sbci	r24, 0x00	; 0
+ 25e:	90 40       	sbci	r25, 0x00	; 0
+ 260:	e1 f7       	brne	.-8      	; 0x25a <__vector_4+0x1e>
+ 262:	00 c0       	rjmp	.+0      	; 0x264 <__vector_4+0x28>
+ 264:	00 00       	nop
+	_delay_ms(5000); //Ground Bounce
+ 266:	9f 91       	pop	r25
+ 268:	8f 91       	pop	r24
+ 26a:	2f 91       	pop	r18
+ 26c:	0f 90       	pop	r0
+ 26e:	0f be       	out	0x3f, r0	; 63
+ 270:	0f 90       	pop	r0
+ 272:	1f 90       	pop	r1
+ 274:	18 95       	reti
+
+00000276 <_exit>:
+ 276:	f8 94       	cli
+
+00000278 <__stop_program>:
+ 278:	ff cf       	rjmp	.-2      	; 0x278 <__stop_program>
