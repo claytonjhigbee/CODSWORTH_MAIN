@@ -16,11 +16,11 @@
 #define BAUD_PRESCALLER (((F_CPU / (BAUDRATE * 16UL))) - 1)
 
 // Function Declarations
-void read_adc(void);        
+void read_adc(void);
 void adc_init(void);
 void USART_init( unsigned int ubrr );
 void USART_tx_string( char *data );
-volatile unsigned int adc_temp;
+volatile unsigned int adc_value;
 char outs[20];
 
 int main(void)
@@ -29,7 +29,9 @@ int main(void)
 	USART_init(BAUD_PRESCALLER);  // Initialize the USART
 	USART_tx_string("Connected!\r\n");    // we're alive!
 	_delay_ms(125);         // wait a bit
-	DDRD = 0xFF; // Set Port D as an output direction 
+	
+	/* PWM Initializer */
+	DDRD = 0xFF; //DDRD = (1<<3); // Set Port D as an output direction THIS IS REQUIRED TO OUTPUT THE PWM
 	// In the next line of code, we:
 	// 1. Set the compare output mode to clear OC2A and OC2B on compare match.
 	//    To achieve this, we set bits COM2A1 and COM2B1 to high.
@@ -50,17 +52,19 @@ int main(void)
 	// This is the duty cycle. Think of it as the last value of the counter our
 	// output will remain high for. Can't be greater than OCR2A of course.
 	OCR2B = 0;
-
-
-	PCMSK1 |= (1<<3);
-	PCICR |= (1<<PCIE1);
-	sei();
+	
+	/* Pin Change Interrupt initializer */
+	PCMSK1 |= (1<<PCINT10); // Enable PCINT10 for pin change interrupt
+	PCICR |= (1<<PCIE1); // Pin change interrupt control register, set Pin Change interrput Enable Register 1
+	sei(); // Set Global interrupt
 	while (1)
-	{	
+	{
 		read_adc();
-		_delay_ms(250); // WHy delay?
-		adc_temp = adc_temp/4;
-		OCR2B = adc_temp; // Replace with adc value
+		_delay_ms(250);
+		adc_value = adc_value/4;
+		snprintf(outs,sizeof(outs),"%3d\r\n", adc_value);  // print it
+		USART_tx_string(outs); // Print adc value
+		OCR2B = adc_value; // Replace with adc value
 	}
 }
 
@@ -72,7 +76,7 @@ void adc_init(void)
 	(1<<REFS0)|    // AVcc - external cap at AREF
 	(0<<ADLAR)|    // ADC Left Adjust Result
 	(0<<MUX2)|     // Analog Channel Selection Bits
-	(0<<MUX1)|     // ADC4 (PC4 PIN27)
+	(0<<MUX1)|     // ADC0 (PC0 PIN27)
 	(0<<MUX0);
 	ADCSRA = (1<<ADEN)|    // ADC ENable
 	(0<<ADSC)|     // ADC Start Conversion
@@ -95,7 +99,7 @@ void read_adc(void)
 		adc_temp+= ADC;
 		_delay_ms(50);
 	}
-	adc_temp = adc_temp / 4;  // Average a few samples
+	adc_value = adc_value / 4;  // Average a few samples
 }
 /* INIT USART (RS-232)  */
 void USART_init( unsigned int ubrr )
@@ -117,11 +121,10 @@ void USART_tx_string( char *data )
 }
 
 ISR(PCINT1_vect){
-	DDRD ^= 0xFF;
-	_delay_ms(5000); //Ground Bounce
-	// Check if I bit is set in IREG
+	DDRD ^= 0xFF; // XOR direction register to either turn motor off or on depending on which has occured last
+	_delay_ms(1000); //Ground Bounce
+	char check = "Pin Change ";
+	USART_tx_string(check); // Print at the time of pin change occurance
 }
 
-// use header - util/atomic.h
-// specify as an atomic function and it will not be interrupted. 
 
