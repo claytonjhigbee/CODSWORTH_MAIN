@@ -7,6 +7,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "DA4B-T2", "DA4B\DA4B-T2.cpr
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "PWMServoTester", "PWMServoTester\PWMServoTester.cproj", "{BD738157-FEB3-4029-A75B-C1B550013D65}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "DA4B-T1", "DA4B-T1\DA4B-T1.cproj", "{78674061-0F0E-458D-A070-16E768815C9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -21,6 +23,10 @@ Global
 		{BD738157-FEB3-4029-A75B-C1B550013D65}.Debug|AVR.Build.0 = Debug|AVR
 		{BD738157-FEB3-4029-A75B-C1B550013D65}.Release|AVR.ActiveCfg = Release|AVR
 		{BD738157-FEB3-4029-A75B-C1B550013D65}.Release|AVR.Build.0 = Release|AVR
+		{78674061-0F0E-458D-A070-16E768815C9D}.Debug|AVR.ActiveCfg = Debug|AVR
+		{78674061-0F0E-458D-A070-16E768815C9D}.Debug|AVR.Build.0 = Debug|AVR
+		{78674061-0F0E-458D-A070-16E768815C9D}.Release|AVR.ActiveCfg = Release|AVR
+		{78674061-0F0E-458D-A070-16E768815C9D}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
